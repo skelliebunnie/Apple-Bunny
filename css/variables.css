@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+	--font-body: 'Quicksand';
+	--font-display: 'Quicksand';
+	
+	/* spacing values */
+    --space-unit: 1em;
+    --space-xxxs: calc(0.25 * var(--space-unit));
+    --space-xxs:  calc(0.375 * var(--space-unit));
+    --space-xs:   calc(0.5 * var(--space-unit));
+    --space-sm:   calc(0.75 * var(--space-unit));
+    --space-md:   calc(1.25 * var(--space-unit));
+    --space-lg:   calc(2 * var(--space-unit));
+    --space-xl:   calc(3.25 * var(--space-unit));
+    --space-xxl:  calc(5.25 * var(--space-unit));
+    --space-xxxl: calc(8.5 * var(--space-unit));
+	
+	/* heading font sizes */
+	--fs-h1: 36px;
+	--fs-h2: 32px;
+	--fs-h3: 28px;
+	--fs-h4: 24px;
+	--fs-h5: 20px;
+	--fs-h6: 18px;
+	
+	/* grey */
+	--grey-50 : #FAFAFA;
+	--grey-100 : #F5F5F5;
+	--grey-200 : #EEEEEE;
+	--grey-300 : #E0E0E0;
+	--grey-400 : #BDBDBD;
+	--grey-500 : #9E9E9E;
+	--grey-600 : #757575;
+	--grey-700 : #616161;
+	--grey-800 : #424242;
+	--grey-900 : #212121;
+	
+	/* primary theme colors */
+	--blue-dark: #390099;
+	--blue: #01BAEF;
+	--green: #7BC559;
+	--wine: #9E0059;
+	--red: #FF0054;
+	--pumpkin: #FF5400;
+	--orange: #FF8600;
+}
+
+@include breakpoint(md) {
+    :root {
+        --space-unit: 1.25em;
+    }
+}
