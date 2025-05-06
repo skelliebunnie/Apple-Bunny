@@ -15,18 +15,27 @@
 			<p class="subtitle">Pomodoro Timer</p>
 		</div>
 		<div id="mode-switcher">
-			<i class="fas fa-sun mode-light hidden"></i><i class="fas fa-moon mode-dark"></i>
+			<i class="fas fa-sun mode-light"></i><i class="fas fa-moon mode-dark"></i>
 		</div>
 	</header>
-	<!-- <div id="timer-settings">
+	<div id="timer-settings">
 		<form action="/">
-			<label for="interval-length">Interval Length: <input type="number" min="1" default="20" name="interval-length"></label>
-			<label for="break-length">Break Length: <input type="number" min="1" default="5" name="break-length"></label>
+			<fieldset>
+				<label for="intervalLength">Interval Length: <input type="number" min="1" value="25" name="intervalLength" class="timer-input"></label>
+				<label for="breakLength">Break Length: <input type="number" min="1" value="5" name="breakLength" class="timer-input"></label>
+			</fieldset>
+			<fieldset class="span">
+				<label for="blockLength">Block Length: <input type="number" min="1" value="8" name="blockLength" class="timer-input"></label>
+			</fieldset>
 		</form>
-	</div> -->
+		<div class="dropdown">
+			<i class="fas fa-caret-down"></i>
+		</div>
+	</div>
+	
 	<main>
-		<div id="interval-cont"></div>
-		<div id="break-cont"></div>
+		<div id="timer-cont"></div>
+		<div class="reset-block"><i class="fa-solid fa-arrows-rotate"></i> Reset Block</div>
 	</main>
 	<aside id="calendar">
 		<header>
@@ -42,50 +51,42 @@
 		<div id="copyright">Copyright &copy; <span id="currentYear"></span> SkellieBunnie</div>
 	</footer>
 	
-	<template id="interval-template">
-		<div class="interval-cont timer-wrapper active">
+	<template id="timer-template">
+		<div class="timer">
 			<div class="content">
-				<h2 class="title">Interval 1</h2>
+				<h2 class="title">Timer Title</h2>
 				<div class="controls">
 					<i class="fas fa-play btn-play"></i> <i class="fas fa-pause btn-pause hidden"></i> <i class="fas fa-stop btn-stop"></i>
 				</div>
 			</div>
-			<div class="timer">
-				0:00
-			</div>
-		</div>
-	</template>
-	
-	<template id="break-template">
-		<div class="break-cont timer-wrapper">
-			<div class="content">
-				<h2 class="title">Break 1</h2>
-				<div class="controls">
-					<i class="fas fa-play btn-play"></i> <i class="fas fa-pause btn-pause hidden"></i> <i class="fas fa-stop btn-stop"></i>
-				</div>
-			</div>
-			<div class="timer">
-				0:00
-			</div>
+			<div class="time">0:00</div>
 		</div>
 	</template>
 	
 	<template id="calendar-entry-template">
 		<div class="calendar-entry" style="background-color: #3f3f3f" data-guid="">
-			<h2 class="title">Interval 1</h2>
+			<h2 class="title">Timer Title</h2>
 			<div class="content">
 				<div class="details">
 					<p class="duration"><strong>Duration:</strong> <span>0:00</span></p>
-					<p class="start"><strong>Start:</strong> <span>0:00</span></p>
-					<p class="end"><strong>End:</strong> <span>0:00</span></p>
+					<div class="start-end">
+						<p class="start"><strong>Start:</strong> <span>0:00</span></p>
+						<p class="end"><strong>End:</strong> <span>0:00</span></p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</template>
 	
-	<!-- Audio Handler -->
+	<!-- CDNs -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.core.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
 	<!-- scripts -->
-	<script src="js/script.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/core.js"></script>
+	<script src="js/mode-switch.js"></script>
+	<script src="js/timer-settings.js"></script>
+	<!-- <script src="js/calendar.js"></script> -->
+	<script src="js/timer.js"></script>
 </body>
 </html>
