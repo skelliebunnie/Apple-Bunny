@@ -1,3 +1,6 @@
+const docBody = document.querySelector("body");
+const modal = document.querySelector(".modal");
+
 const todayDate = new Date();
 const timerColorsPrimary = ["#390099", "#01BAEF", "#7BC559", "#9E0059", "#FF0054", "#FF8600"];
 
@@ -21,7 +24,7 @@ let defaultData = {
 		isPaused : false,
 	},
 	currentType : "interval",
-	calendarEntries : [],
+	calendarEntries : {},
 	intervalCount : 1,
 	breakCount : 1,
 	blockLength : customBlockLength,

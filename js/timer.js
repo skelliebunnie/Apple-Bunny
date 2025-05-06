@@ -206,7 +206,7 @@ function saveEntry() {
 		timeRunning : endTime.diff(startTime, 'second'),
 	}
 	
-	apbnData.calendarEntries.push(timerEntry);
+	apbnData.calendarEntries[apbnData.timer.guid] = timerEntry;
 	saveLocalData(apbnData);
 	updateCalendar();
 }
@@ -221,12 +221,13 @@ function updateCalendar() {
 	let calendarDateCont = document.querySelector("#calendar .date");
 	calendarDateCont.textContent = currentDate.format("MMMM DD, YYYY");
 	
-	if(calendarEntries.length > 0) {
+	if(Object.keys(calendarEntries).length > 0) {
 		calendarEntriesContainer.classList.remove("no-entries");
 		calendarEntriesContainer.textContent = "";
 		
-		let index = 0;
-		for(const entry of calendarEntries) {
+		for(const key of Object.keys(calendarEntries)) {
+			let entry = calendarEntries[key];
+			console.log(entry);
 			let startTime = dayjs(entry.startTime, "x");
 				
 			if(startTime.isSame(currentDate, "day")) {
@@ -235,9 +236,8 @@ function updateCalendar() {
 			} else {
 				// remove calendar entries from previous dates
 				// this will be changed later! if I ever expand this project
-				calendarEntries.splice(index, 1);
+				delete calendarEntries[entry.guid];
 			}
-			++index;
 		}
 	} else {
 		calendarEntriesContainer.textContent = "No Entries Found";
